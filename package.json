@@ -1,0 +1,24 @@
+{
+  "name": "microscope-console",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Benjamin Heintz",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.0.3",
+    "inquirer": "^0.8.0",
+    "vinyl-fs": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^4.0.0",
+    "gulp-docco": "0.0.4",
+    "gulp-ejs": "^1.1.0",
+    "gulp-jshint": "^1.9.2",
+    "jshint-stylish": "^1.0.0"
+  }
+}

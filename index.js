@@ -1,0 +1,1 @@
+export.Form = require('./lib/Form');
