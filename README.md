@@ -35,16 +35,16 @@ Using homebrew:
 Installation
 ------------
 
-#### install grunt-cli (sudo on linux/OSX) :
+#### install gulp (sudo on linux/OSX) :
 
-	npm install grunt-cli
+	npm install gulp -g
 
 #### install dependencies (sudo on linux/OSX) :
 
 	npm install
 
-Commands
---------
+Development commands
+--------------------
 
 #### test (run gulp test):
 
@@ -69,5 +69,58 @@ Commands
 * generate annoted code documentation (docco).
 * generate annoted code samples documentation (docco).
 
+How to use ?
+============
+
+create console application form. 
+extends microscope-console.Form class :
+
+```js
+var Form = require('../../src/Form');
+var ejs  = require("gulp-ejs");
+
+// project creation form class
+class ProjectForm extends Form {
+
+	// getter form model
+	get model(){
+		return [{
+			type: 'input',
+			name: 'projectName',
+			message: 'What is your project name ?',
+			validate: this.validate
+		}];
+	}
+
+	// perform input validation
+	validate(input){
+		var done = this.async();
+		done(true);
+	}
+
+	// gulp api like
+	response(answer){
+		this.src([__dirname + '/../templates/index.ejs'])
+			.pipe(ejs({projectName: answer.projectName}))
+			.pipe(this.dest(__dirname + '/../' + answer.projectName + '/'));
+
+		var output = '\nYour project '+ answer.projectName +' was generated !';
+		console.log(output.green);
+	}
+}
+
+module.exports = ProjectForm;
+```
+
+Instatiate it and compose tasks console applications using gulp
+
+```js
+var ProjectForm = require('./forms/ProjectForm');
+var c = new ProjectForm();
+```
+
 Roadmap
 =======
+
+* improve testing
+* deploy to npm as replacement for microscope-cli
