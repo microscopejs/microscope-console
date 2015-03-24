@@ -1,13 +1,17 @@
 {
   "name": "microscope-console",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.8.0",
+  "description": "Console application librairy - play well with gulp and npm workflow. ",
   "scripts": {
     "test": "gulp test"
   },
   "author": "Benjamin Heintz",
   "license": "MIT",
+  "keywords": [
+    "CLI",
+    "Form",
+    "POO"
+  ],
   "dependencies": {
     "colors": "^1.0.3",
     "inquirer": "^0.8.0",
