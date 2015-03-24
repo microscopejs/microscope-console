@@ -1,3 +1,8 @@
+/**
+ * THIS CLASS IS NOT USE FOR NOW
+ * WAITING FOR NODE.JS ES6 FULL SUPPORT
+ */
+
 // Imports
 var vfs      = require('vinyl-fs');
 var inquirer = require('inquirer');
@@ -9,7 +14,6 @@ class Form {
 	// Form constructor
 	constructor(){
 		this.displaylogo();
-		this.render();
 	}
 
 	// getter for model
@@ -27,7 +31,7 @@ class Form {
 		return [
 			'\n',
 			'================================',
-			'           BlackBoard           ',
+			'        MICROSCOPE-CONSOLE      ',
 			'================================',
 		].join('\n');
 	}

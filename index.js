@@ -1,1 +1,1 @@
-export.Form = require('./lib/Form');
+export.Form = require('./src/FormEs5');

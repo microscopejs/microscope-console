@@ -50,7 +50,7 @@ Development commands
 
 	npm test
 
-#### build:
+#### build (not use yet):
 
 	gulp build
 
@@ -72,33 +72,82 @@ Development commands
 How to use ?
 ============
 
-create console application form. 
-extends microscope-console.Form class :
+Create console application wich rich form:
+
+***old school way (ES5):***
 
 ```js
-var Form = require('../../src/Form');
+var Form = require('microscope-console').Form;
 var ejs  = require("gulp-ejs");
 
-// project creation form class
-class ProjectForm extends Form {
+/**
+ * Project form
+ * Es5 syntax
+ */
+var ProjectForm = Form.extend({
 
-	// getter form model
-	get model(){
-		return [{
+	// initialize model here and render form
+	initialize: function () {
+		this.model = [{
 			type: 'input',
 			name: 'projectName',
 			message: 'What is your project name ?',
 			validate: this.validate
 		}];
+
+		this.render();
+	},
+
+	// input validation here
+	validate: function (input) {
+		var done = this.async();
+		done(true);
+	},
+
+	// manage user answer here
+	response: function (answer) {
+		this.src([__dirname + '/../templates/index.ejs'])
+			.pipe(ejs({projectName: answer.projectName}))
+			.pipe(this.dest(__dirname + '/../' + answer.projectName + '/'));
+
+		var output = '\nYour project '+ answer.projectName +' was generated !';
+		console.log(output.green);
+	}
+});
+
+module.exports = ProjectForm;
+```
+
+***new school way (ES6 with babel):***
+
+```js
+var Form = require('microscope-console').Form;
+var ejs  = require("gulp-ejs");
+
+/**
+ * Project form with es6 syntax
+ * native extend es5 form
+ */
+class ProjectForm extends Form {
+
+	// initialize model here and render form
+	initialize(){
+		this.model = [{
+			type: 'input',
+			name: 'projectName',
+			message: 'What is your project name ?',
+			validate: this.validate
+		}];
+		this.render();
 	}
 
-	// perform input validation
+	// input validation here
 	validate(input){
 		var done = this.async();
 		done(true);
 	}
 
-	// gulp api like
+	// manage user answer here
 	response(answer){
 		this.src([__dirname + '/../templates/index.ejs'])
 			.pipe(ejs({projectName: answer.projectName}))
