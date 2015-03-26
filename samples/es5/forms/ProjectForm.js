@@ -7,6 +7,8 @@ var ejs  = require("gulp-ejs");
  */
 var ProjectForm = Form.extend({
 
+	banner: 'PROJECT FORM',
+
 	// initialize model here and render form
 	initialize: function () {
 		this.model = [{

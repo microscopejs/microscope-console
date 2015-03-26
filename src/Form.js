@@ -13,7 +13,7 @@ class Form {
 
 	// Form constructor
 	constructor(){
-		this.displaylogo();
+		this.displayBanner();
 	}
 
 	// getter for model
@@ -27,19 +27,15 @@ class Form {
 	}
 
 	// Default logo
-	get logo(){
-		return [
-			'\n',
-			'================================',
-			'        MICROSCOPE-CONSOLE      ',
-			'================================',
-		].join('\n');
+	get banner(){
+		return 'MICROSCOPE-CONSOLE';
 	}
 
 	// display logo with colors
-	displaylogo(){
-		var logo = this.logo;
-		console.log(logo.cyan);
+	displayBanner(){
+		var banner = this.banner;
+		console.log('\n');
+		console.log(banner.cyan);
 	}
 
 	response(){}

@@ -8,8 +8,8 @@ require('colors');
 
 // Form class
 function Form () {
-	this.displaylogo();
 	this.model = [];
+	this.displayBanner();
 	this.initialize.apply(this, arguments);
 }
 
@@ -23,20 +23,14 @@ _.extend(Form.prototype, {
 		inquirer.prompt(this.model, this.response.bind(this));	
 	},
 
-	// getter for logo
-	logo: function () {
-		return [
-		'\n',
-		'================================',
-		'        MICROSCOPE-CONSOLE      ',
-		'================================',
-		].join('\n');
-	},
+	// getter for banner
+	banner: 'MICROSCOPE-CONSOLE',
 
 	// display organisation logo
-	displaylogo: function () {
-		var logo = this.logo();
-		console.log(logo.cyan);
+	displayBanner: function () {
+		var banner = _.result(this, 'banner');
+		console.log('\n');
+		console.log(banner.cyan);
 	},
 
 	// manage user answers here
