@@ -3,6 +3,8 @@ microscope-console
 
 Console application librairie - play well with gulp and npm workflow.
 
+[![Build Status](https://travis-ci.org/microscopejs/microscope-console.svg?branch=master)](https://travis-ci.org/microscopejs/microscope-console)
+
 ![microscopejs](http://microscopejs.com/images/mcsp_bg.png)
 
 Requirements
