@@ -167,4 +167,3 @@ Roadmap
 =======
 
 * improve testing
-* deploy to npm as replacement for microscope-cli
