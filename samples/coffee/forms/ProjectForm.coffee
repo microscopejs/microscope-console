@@ -10,15 +10,12 @@ class ProjectForm extends Form
 
 	banner: 'PROJECT FORM'
 
-	# initialize model here and render form
-	initialize: ()->
-		@model = [{
-			type: 'input',
-			name: 'projectName',
-			message: 'What is your project name ?',
-			validate: this.validate
-		}]
-		@render()
+	model: [{
+		type: 'input',
+		name: 'projectName',
+		message: 'What is your project name ?',
+		validate: this.validate
+	}]
 
 	# input validation here
 	validate: (input)->

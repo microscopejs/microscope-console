@@ -9,17 +9,12 @@ var ProjectForm = Form.extend({
 
 	banner: 'PROJECT FORM',
 
-	// initialize model here and render form
-	initialize: function () {
-		this.model = [{
-			type: 'input',
-			name: 'projectName',
-			message: 'What is your project name ?',
-			validate: this.validate
-		}];
-
-		this.render();
-	},
+	model: [{
+		type: 'input',
+		name: 'projectName',
+		message: 'What is your project name ?',
+		validate: this.validate
+	}],
 
 	// input validation here
 	validate: function (input) {

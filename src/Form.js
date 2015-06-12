@@ -8,27 +8,20 @@ var vfs      = require('vinyl-fs');
 var inquirer = require('inquirer');
 require('colors');
 
-// Blackboard Form
+/**
+ * Form class
+ */
 class Form {
 
 	// Form constructor
 	constructor(){
 		this.displayBanner();
-	}
-
-	// getter for model
-	get model(){
-		return [];
+		this.render();
 	}
 
 	// render form prompt using inquirer and callback answer to this.response
 	render(){
 		inquirer.prompt(this.model, this.response.bind(this));
-	}
-
-	// Default logo
-	get banner(){
-		return 'MICROSCOPE-CONSOLE';
 	}
 
 	// display logo with colors
@@ -41,7 +34,8 @@ class Form {
 	response(){}
 }
 
-// Add vinyl-fs function to Form prototype
+Form.prototype.model = [];
+Form.prototype.banner = 'MICROSCOPE-CONSOLE';
 Form.prototype.src = vfs.src;
 Form.prototype.dest = vfs.dest;
 

@@ -10,16 +10,14 @@ class ProjectForm extends Form {
 	get banner(){
 		return 'PROJECT FORM';
 	}
-
-	// initialize model here and render form
-	initialize(){
-		this.model = [{
+	
+	get model(){
+		return [{
 			type: 'input',
 			name: 'projectName',
 			message: 'What is your project name ?',
 			validate: this.validate
 		}];
-		this.render();
 	}
 
 	// input validation here
