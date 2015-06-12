@@ -88,17 +88,12 @@ var ejs  = require("gulp-ejs");
  */
 var ProjectForm = Form.extend({
 
-	// initialize model here and render form
-	initialize: function () {
-		this.model = [{
-			type: 'input',
-			name: 'projectName',
-			message: 'What is your project name ?',
-			validate: this.validate
-		}];
-
-		this.render();
-	},
+	model: [{
+		type: 'input',
+		name: 'projectName',
+		message: 'What is your project name ?',
+		validate: this.validate
+	}],
 
 	// input validation here
 	validate: function (input) {
@@ -132,15 +127,13 @@ var ejs  = require("gulp-ejs");
  */
 class ProjectForm extends Form {
 
-	// initialize model here and render form
-	initialize(){
-		this.model = [{
+	get model(){
+		return [{
 			type: 'input',
 			name: 'projectName',
 			message: 'What is your project name ?',
 			validate: this.validate
 		}];
-		this.render();
 	}
 
 	// input validation here
